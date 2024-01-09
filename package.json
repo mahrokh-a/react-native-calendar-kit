@@ -42,13 +42,13 @@
     "calendar-kit",
     "calendar-week-view"
   ],
-  "repository": "https://github.com/howljs/react-native-calendar-kit",
+  "repository": "https://github.com/mahrokh-a/react-native-calendar-kit.git",
   "author": "howljs <lehau.dev@gmail.com> (https://github.com/howljs)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/howljs/react-native-calendar-kit/issues"
   },
-  "homepage": "https://github.com/howljs/react-native-calendar-kit#readme",
+  "homepage": "https://github.com/mahrokh-a/react-native-calendar-kit.git",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
