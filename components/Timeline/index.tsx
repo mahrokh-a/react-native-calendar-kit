@@ -33,10 +33,6 @@ import { clampValues, groupEventsByDate } from '../../utils';
 import DragCreateItem from './DragCreateItem';
 import TimelineHeader from './TimelineHeader';
 import TimelineSlots from './TimelineSlots';
-import {
-  calendarActions,
-  useCalendarContext,
-} from '@src/pages/Home/Calendare/context';
 
 const Timeline: React.ForwardRefRenderFunction<
   TimelineCalendarHandle,
@@ -52,6 +48,7 @@ const Timeline: React.ForwardRefRenderFunction<
     selectedEvent,
     highlightDates,
     onChange,
+    onDateChanged,
     onTimeIntervalHeightChange,
     ...other
   },
@@ -86,7 +83,6 @@ const Timeline: React.ForwardRefRenderFunction<
   } = useTimelineCalendarContext();
   const { goToNextPage, goToPrevPage, goToOffsetY } = useTimelineScroll();
   const [weekNumber, setWeekNumber] = useState(pages[viewMode].index + 1);
-  const { dispatch } = useCalendarContext();
 
   useImperativeHandle<TimelineCalendarHandle, TimelineCalendarHandle>(
     ref,
@@ -315,10 +311,7 @@ const Timeline: React.ForwardRefRenderFunction<
               setWeekNumber(
                 pages[viewMode].data.findIndex((item) => item == changeDate) + 1
               );
-              dispatch({
-                type: calendarActions.onChangeEndDate,
-                payload: changeDate,
-              });
+              onDateChanged(changeDate);
             }}
           />
         </GestureDetector>
